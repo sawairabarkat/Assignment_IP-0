@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#0</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+    #err_no_1 {
+        display: none;
+        color: red;
+    }
+    
+    #err_no_2 {
+        display: none;
+        color: red;
+    }
+    
+    #err_no_3 {
+        display: none;
+        color: red;
+    }
+    
+    #err_no_4 {
+        display: none;
+        color: red;
+    }
+    
+    .display_block {
+        display: block !important;
+    }
+</style>
+
+
+
+<body>
+
+    <div class="container">
+        <!-- <form id="contact" action="" method="post"> -->
+
+        <img src="gcs.png" alt="error" class="center" width="150" height="150">
+        <h1>Student Form</h1>
+        <h2>Personal Information</h2>
+
+        <form action="table.html" method="GET" id="formid">
+
+            <div id="outer_div_form">
+                <div id="personal_info_div">
+
+                    <label for="fname">Student Name: </label><br>
+                    <input type="text" id="name" name="name" placeholder="Your Name.."><br><br>
+
+                    <label for="lname">Father's Name:</label><br>
+                    <input type="text" id="father_name" name="father_name" placeholder="Your Father name.."><br><br>
+
+                    <label for="lname">Phone Number:</label><br>
+                    <input type="text" id="phone" name="phone" placeholder="03xx-xxxxxxx"><br><br>
+                    <label for="lname">Email Address:</label><br>
+                    <input type="text" id="email" name="email" placeholder="email@address.com"><br><br>
+
+                    <label for="lname">Instituion Name:</label><br>
+                    <input type="text" id="instituion" name="instituion"><br><br>
+                    <label for="lname">Discipline:</label><br>
+                    <input type="text" id="discipline" name="discipline"><br><br>
+                </div>
+
+
+                <div id="result_info_div">
+                    <div>
+                        <h3>Result Info</h3>
+                    </div>
+
+                    <div>
+
+                        <div id="err_no_1">
+                            <p>Error : Obtained > Total</p>
+                        </div>
+
+                        <label for="lname">Subject # 1</label><br>
+                        <input required type="text" name="1_name" placeholder="Subject Name..." id="1_name"><br><br>
+                        <input type="text" data-id="1" onkeyup="validation(this)" name="1_total" id="1_total" placeholder="Subject Total Marks..."><br><br>
+                        <input type="text" data-id="1" onkeyup="validation(this)" name="1_obtained" id="1_obtained" placeholder="Subject Marks..."><br><br>
+                    </div>
+
+                    <div>
+
+                        <div id="err_no_2">
+                            <p>Error : Obtained > Total</p>
+                        </div>
+                        <label for="lname">Subject # 2:</label><br>
+                        <input type="text" name="2_name" placeholder="Subject Name..." id="2_name"><br><br>
+                        <input type="text" data-id="2" onkeyup="validation(this)" name="2_total" id="2_total" placeholder="Subject Total Marks..."><br><br>
+                        <input type="text" data-id="2" onkeyup="validation(this)" name="2_obtained" id="2_obtained" placeholder="Subject Marks..."><br><br>
+                    </div>
+
+                    <div>
+
+                        <div id="err_no_3">
+                            <p>Error : Obtained > Total</p>
+                        </div>
+                        <label for="lname">Subject # 3:</label><br>
+                        <input type="text" name="3_name" placeholder="Subject Name..." id="3_name"><br><br>
+                        <input type="text" data-id="3" onkeyup="validation(this)" name="3_total" id="3_total" placeholder="Subject Total Marks..."><br><br>
+                        <input type="text" data-id="3" onkeyup="validation(this)" name="3_obtained" id="3_obtained" placeholder="Subject Marks..."><br><br>
+                    </div>
+
+                    <div>
+
+                        <div id="err_no_4">
+                            <p>Error : Obtained > Total</p>
+                        </div>
+                        <label for="lname">Subject # 4:</label><br>
+                        <input type="text" name="4_name" placeholder="Subject Name..." id="4_name"><br><br>
+                        <input type="text" data-id="4" onkeyup="validation(this)" name="4_total" id="4_total" placeholder="Subject Total Marks..."><br><br>
+                        <input type="text" data-id="4" onkeyup="validation(this)" name="4_obtained" id="4_obtained" placeholder="Subject Obtained Marks..."><br><br>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <button type="button" id="submit_button" onclick="beforeSubmit()">Submit</button>
+            <!-- <input  type="submit" value="Submit"> -->
+        </form>
+
+
+        <script>
+            function beforeSubmit() {
+
+                error = false;
+
+                for (let i = 1; i < 5; i++) {
+                    var total = document.getElementById(`${i}_total`).value;
+                    var Obtained = document.getElementById(`${i}_obtained`).value;
+
+                    if (parseInt(Obtained) > parseInt(total)) {
+                        error = true;
+                    }
+                }
+
+                var element = document.getElementById('name').value;
+                if (element == '') {
+                    error = true;
+                }
+                element = document.getElementById('father_name').value;
+                if (element == '') {
+                    error = true;
+                }
+                element = document.getElementById('phone').value;
+                if (element == '') {
+                    error = true;
+                }
+                element = document.getElementById('email').value;
+                if (element == '') {
+                    error = true;
+                }
+                element = document.getElementById('instituion').value;
+                if (element == '') {
+                    error = true;
+                }
+
+                if (error) {
+                    //Nothing Happens
+                    //Form will not be submitted
+                } else {
+                    //No Error
+                    //Form Submit
+                    document.getElementById('formid').submit();
+                }
+            }
+        </script>
+
+
+
+        <script>
+            function validation(arg) {
+                // console.log(arg.getAttribute('data-id'));
+
+                var This_id = arg.getAttribute('data-id');
+
+                if (This_id == 1) {
+                    var total = document.getElementById('1_total').value;
+                    var Obtained = document.getElementById('1_obtained').value;
+                    var error = document.getElementById('err_no_1');
+                    if (parseInt(Obtained) > parseInt(total)) {
+                        error.classList.add('display_block');
+                    } else {
+                        error.classList.remove('display_block');
+                    }
+                }
+                if (This_id == 2) {
+                    var total = document.getElementById('2_total').value;
+                    var Obtained = document.getElementById('2_obtained').value;
+                    var error = document.getElementById('err_no_2');
+                    if (parseInt(Obtained) > parseInt(total)) {
+                        error.classList.add('display_block');
+                    } else {
+                        error.classList.remove('display_block');
+                    }
+                }
+                if (This_id == 3) {
+                    var total = document.getElementById('3_total').value;
+                    var Obtained = document.getElementById('3_obtained').value;
+                    var error = document.getElementById('err_no_3');
+                    if (parseInt(Obtained) > parseInt(total)) {
+                        error.classList.add('display_block');
+                    } else {
+                        error.classList.remove('display_block');
+                    }
+                }
+                if (This_id == 4) {
+                    var total = document.getElementById('4_total').value;
+                    var Obtained = document.getElementById('4_obtained').value;
+                    var error = document.getElementById('err_no_4');
+                    if (parseInt(Obtained) > parseInt(total)) {
+                        error.classList.add('display_block');
+                    } else {
+                        error.classList.remove('display_block');
+                    }
+                }
+            }
+        </script>
+
+
+
+        <!-- </form> -->
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

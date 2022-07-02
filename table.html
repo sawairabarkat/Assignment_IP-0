@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+
+
+<style>
+    div{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse:separate;
+        width: 60%;
+        display:table ;
+        justify-content: center;
+    }
+    
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #3d3538;
+        color: white;
+         }
+         .container{
+            height: 40vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+         .contain{
+            height: 40vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+</style>
+
+<body>
+
+<div>
+    <img src="gcs.png" alt="error" class="center" width="150" height="150">
+    </div>
+    <div>
+        <h1>Student Form</h1>
+    </div>
+    <div class="container">
+    <table id="customers">
+        <tr>
+            <td>Name</td>
+            <td id="name">Maria Anders</td>
+        </tr>
+        <tr>
+            <td>Father's Name</td>
+            <td id="father_name">Christina Berglund</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td id="phone">Francisco Chang</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td id="email">Francisco Chang</td>
+        </tr>
+        <tr>
+            <td>instituion</td>
+            <td id="instituion">Roland Mendel</td>
+        </tr>
+    </table>
+    </div>
+
+<div class="contain">
+    <table id="customers">
+        <tr>
+            <th>Subject Number</th>
+            <th>Subject Name</th>
+            <th>Total</th>
+            <th>Obtained</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td id="subject_name_1">....</td>
+            <td id="subject_total_1">...</td>
+            <td id="subject_obtained_1">...</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td id="subject_name_2">....</td>
+            <td id="subject_total_2">....</td>
+            <td id="subject_obtained_2">...</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td id="subject_name_3">....</td>
+            <td id="subject_total_3">...</td>
+            <td id="subject_obtained_3">.....</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td id="subject_name_4">...</td>
+            <td id="subject_total_4">...</td>
+            <td id="subject_obtained_4">.....</td>
+        </tr>
+    </table>
+    </div>
+
+
+    <script>
+        //TO RETRIEVE
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        const name = urlParams.get('name');
+        const father_name = urlParams.get('father_name');
+        const email = urlParams.get('email');
+        const instituion = urlParams.get('instituion');
+        const phone = urlParams.get('phone');
+
+        const subject_1_name = urlParams.get('1_name');
+        const subject_1_total = urlParams.get('1_total');
+        const subject_1_obtained = urlParams.get('1_obtained');
+
+        const subject_2_name = urlParams.get('2_name');
+        const subject_2_total = urlParams.get('2_total');
+        const subject_2_obtained = urlParams.get('2_obtained');
+
+        const subject_3_name = urlParams.get('3_name');
+        const subject_3_total = urlParams.get('3_total');
+        const subject_3_obtained = urlParams.get('3_obtained');
+
+        const subject_4_name = urlParams.get('4_name');
+        const subject_4_total = urlParams.get('4_total');
+        const subject_4_obtained = urlParams.get('4_obtained');
+    </script>
+
+
+    <script>
+        //TO SHOW
+        var element = document.getElementById('name');
+        element.innerHTML = name;
+        var element = document.getElementById('father_name');
+        element.innerHTML = father_name;
+        var element = document.getElementById('email');
+        element.innerHTML = email;
+        var element = document.getElementById('instituion');
+        element.innerHTML = instituion;
+        var element = document.getElementById('phone');
+        element.innerHTML = phone;
+
+        //SUBJECT RETRIEVE
+        var element = document.getElementById('subject_name_1');
+        element.innerHTML = subject_1_name;
+        var element = document.getElementById('subject_total_1');
+        element.innerHTML = subject_1_total;
+        var element = document.getElementById('subject_obtained_1');
+        element.innerHTML = subject_1_obtained;
+
+        var element = document.getElementById('subject_name_2');
+        element.innerHTML = subject_2_name;
+        var element = document.getElementById('subject_total_2');
+        element.innerHTML = subject_2_total;
+        var element = document.getElementById('subject_obtained_2');
+        element.innerHTML = subject_2_obtained;
+
+        var element = document.getElementById('subject_name_3');
+        element.innerHTML = subject_3_name;
+        var element = document.getElementById('subject_total_3');
+        element.innerHTML = subject_3_total;
+        var element = document.getElementById('subject_obtained_3');
+        element.innerHTML = subject_3_obtained;
+
+        var element = document.getElementById('subject_name_4');
+        element.innerHTML = subject_4_name;
+        var element = document.getElementById('subject_total_4');
+        element.innerHTML = subject_4_total;
+        var element = document.getElementById('subject_obtained_4');
+        element.innerHTML = subject_4_obtained;
+    </script>
+
+
+
+
+</body>
+
+</html>
